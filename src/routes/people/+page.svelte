@@ -4,6 +4,9 @@
 </script>
 
 <p><i>Random person data</i></p>
+<div class="button-container">
+  <a href="/people/create" class="addButton">Add New Person</a>
+</div>
 
 <div class="row mt-3">
   {#each data.people as person}  <!-- Loop through the "people" array -->

@@ -1,4 +1,117 @@
-body {
-    background-color: black;
+ /* General Styles */
+ body {
+    background: url('/images/website_background.png') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #ffffff;
+}
+
+/*Nav bar*/
+.nav-link:hover {
+    color: #ffaa00 !important;
+    /* Gold hover effect */
+}
+
+  /* Hero Section */
+  .hero {
+    background: url('/images/hero_background.png') no-repeat center center/cover;
     color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.hero button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.hero .btn-primary {
+    background-color: #ffaa00;
+    color: white;
+}
+.hero .btn-secondary {
+    background-color: #333;
+    color: white;
+}
+
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(30, 30, 46, 0.8);
+}
+
+.features h2 {
+    margin-bottom: 30px;
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.feature-item h3 {
+    margin-top: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: #ffaa00;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.newsletter input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #ffaa00;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }

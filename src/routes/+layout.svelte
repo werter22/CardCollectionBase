@@ -4,30 +4,36 @@
 </script>
 
 <nav
-  class="navbar navbar-expand-lg bg-body-tertiary bg-dark"
+  class="navbar navbar-expand-lg bg-dark"
   data-bs-theme="dark"
 >
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">PeopleStack</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Logo -->
+    <a class="navbar-brand text-warning" href="/">CardCollectionBase</a>
+   
+    <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/people"
-            >People</a
-          >
+          <a class="nav-link active" aria-current="page" href="/card-site">Cards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/deck">Decks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/players">Players</a>
         </li>
       </ul>
+      <!-- Search Bar -->
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2 bg-secondary text-light border-0"
+          type="search"
+          placeholder="Search cards..."
+          aria-label="Search"
+        />
+        <button class="btn btn-warning" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>
