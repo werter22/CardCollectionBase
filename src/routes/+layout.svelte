@@ -15,10 +15,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/card-site">Cards</a>
+          <a class="nav-link active" aria-current="page" href="/cards">Cards</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/deck">Decks</a>
+          <a class="nav-link" href="/decks">Decks</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/players">Players</a>

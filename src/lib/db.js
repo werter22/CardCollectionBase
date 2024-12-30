@@ -4,139 +4,142 @@ import { DB_URI } from "$env/static/private";
 const client = new MongoClient(DB_URI);
 
 await client.connect();
-const db = client.db("PersonDB"); // select database
+const db = client.db("CardCollectionDB"); // select database
 
 //////////////////////////////////////////
-// People
+// Cards
 //////////////////////////////////////////
 
-// Get all people
-async function getPeople() {
-  let people = [];
+// Get all cards
+async function getCards() {
+  let cards = [];
   try {
-    const collection = db.collection("people");
+    const collection = db.collection("cards");
 
-    // You can specify a query/filter here
-    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
+    // Query/filter (optional)
     const query = {};
 
-    // Get all objects that match the query
-    people = await collection.find(query).toArray();
-    people.forEach((person) => {
-      person._id = person._id.toString(); // convert ObjectId to String
+    // Get all cards that match the query
+    cards = await collection.find(query).toArray();
+    cards.forEach((card) => {
+      card._id = card._id.toString(); // Convert ObjectId to string
     });
   } catch (error) {
     console.log(error);
-    // TODO: errorhandling
+    // TODO: error handling
   }
-  return people;
+  return cards;
 }
 
-// Get person by id
-async function getPerson(id) {
-  let person = null;
+// Get card by ID
+async function getCard(id) {
+  let card = null;
   try {
-    const collection = db.collection("people");
-    const query = { _id: new ObjectId(id) }; // filter by id
-    person = await collection.findOne(query);
+    const collection = db.collection("cards");
+    const query = { _id: new ObjectId(id) }; // Filter by ID
+    card = await collection.findOne(query);
 
-    if (!person) {
-      console.log("No person with id " + id);
-      // TODO: errorhandling
+    if (!card) {
+      console.log("No card with ID " + id);
+      // TODO: error handling
     } else {
-      person._id = person._id.toString(); // convert ObjectId to String
+      card._id = card._id.toString(); // Convert ObjectId to string
     }
   } catch (error) {
-    // TODO: errorhandling
     console.log(error.message);
+    // TODO: error handling
   }
-  return person;
+  return card;
 }
 
-// create person
-// Example person object:
+// Create card
+// Example card object:
 /* 
-{ 
-  name: "John Doe",
-  age: 30,
-  occupation: "Engineer",
-  status: true 
-} 
+{
+  Name: "Fire Dragon",
+  Rarity: "Legendary",
+  AttackPoints: 5000,
+  DefensePoints: 3000,
+  Type: "Creature",
+  CardText: "Unleashes a fiery breath, dealing massive damage to all opponent's creatures.",
+  CardImg: "/images/Fire_Dragon_Trading_Card.png"
+}
 */
-async function createPerson(person) {
-  person.profilePicture = "/images/profile.png"; // default profile picture
+async function createCard(card) {
   try {
-    const collection = db.collection("people");
-    const result = await collection.insertOne(person);
-    return result.insertedId.toString(); // convert ObjectId to String
+    const collection = db.collection("cards");
+    const result = await collection.insertOne(card);
+    return result.insertedId.toString(); // Convert ObjectId to string
   } catch (error) {
-    // TODO: errorhandling
     console.log(error.message);
+    // TODO: error handling
   }
   return null;
 }
 
-// update person
-// Example person object:
+// Update card
+// Example card object:
 /* 
-{ 
-  _id: "6630e72c95e12055f661ff13",
-  name: "John Doe",
-  age: 30,
-  occupation: "Engineer",
-  status: true,
-  profilePicture: "/images/johndoe.png"
-} 
+{
+  _id: "2d9b9da002d7f93deb9e638ff2f5abd5",
+  Name: "Fire Dragon",
+  Rarity: "Legendary",
+  AttackPoints: 5000,
+  DefensePoints: 3000,
+  Type: "Creature",
+  CardText: "Unleashes a fiery breath, dealing massive damage to all opponent's creatures.",
+  CardImg: "/images/Fire_Dragon_Trading_Card.png"
+}
 */
-// returns: id of the updated person or null, if person could not be updated
-async function updatePerson(person) {
+// Returns: ID of the updated card or null if card could not be updated
+async function updateCard(card) {
   try {
-    let id = person._id;
-    delete person._id; // delete the _id from the object, because the _id cannot be updated
-    const collection = db.collection("people");
-    const query = { _id: new ObjectId(id) }; // filter by id
-    const result = await collection.updateOne(query, { $set: person });
+    let id = card._id;
+    delete card._id; // Remove _id from the object, as it cannot be updated
+    const collection = db.collection("cards");
+    const query = { _id: new ObjectId(id) }; // Filter by ID
+    const result = await collection.updateOne(query, { $set: card });
 
     if (result.matchedCount === 0) {
-      console.log("No person with id " + id);
-      // TODO: errorhandling
+      console.log("No card with ID " + id);
+      // TODO: error handling
     } else {
-      console.log("Person with id " + id + " has been updated.");
+      console.log("Card with ID " + id + " has been updated.");
       return id;
     }
   } catch (error) {
-    // TODO: errorhandling
     console.log(error.message);
+    // TODO: error handling
   }
   return null;
 }
 
-// delete person by id
-// returns: id of the deleted person or null, if person could not be deleted
-async function deletePerson(id) {
+// Delete card by ID
+// Returns: ID of the deleted card or null if card could not be deleted
+async function deleteCard(id) {
   try {
-    const collection = db.collection("people");
-    const query = { _id: new ObjectId(id) }; // filter by id
+    const collection = db.collection("cards");
+    const query = { _id: new ObjectId(id) }; // Filter by ID
     const result = await collection.deleteOne(query);
 
     if (result.deletedCount === 0) {
-      console.log("No person with id " + id);
+      console.log("No card with ID " + id);
     } else {
-      console.log("Person with id " + id + " has been successfully deleted.");
+      console.log("Card with ID " + id + " has been successfully deleted.");
       return id;
     }
   } catch (error) {
-    // TODO: errorhandling
     console.log(error.message);
+    // TODO: error handling
   }
   return null;
 }
 
-// export all functions so that they can be used in other files
+// Export all functions so that they can be used in other files
 export default {
-  getPeople,
-  getPerson,
-  createPerson,
-  updatePerson,
-  deletePerson,
+  getCards,
+  getCard,
+  createCard,
+  updateCard,
+  deleteCard,
 };

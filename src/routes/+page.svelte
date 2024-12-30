@@ -47,6 +47,6 @@
             <input type="email" placeholder="Subscribe to our newsletter" />
             <button>Subscribe</button>
         </div>
-        <p>&copy; 2024 Card Collector. All Rights Reserved.</p>
+        <p>&copy; 2024 Card Collection Base. All Rights Reserved.</p>
     </div>
 </footer>
