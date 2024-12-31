@@ -8,17 +8,14 @@ body {
     color: #ffffff;
 }
 
-/* Navbar */
-.nav-link:hover {
-    color: #ffaa00 !important; /* Gold hover effect */
-}
-
 /* Hero Section */
 .hero {
     background: url('/images/hero_background.png') no-repeat center center/cover;
+    border-radius: 10px;
     color: white;
     text-align: center;
-    padding: 100px 20px;
+    padding: 80px 20px;
+    margin-bottom: 20px;
 }
 .hero h1 {
     font-size: 3rem;
@@ -46,6 +43,22 @@ body {
 }
 
 /* Carousel Styling */
+.carousel-title {
+    position: absolute;
+    top: 20px; /* Adjust vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; /* Ensure it appears above the carousel background */
+    text-align: center;
+}
+
+.carousel-title h2 {
+    font-size: 2rem;
+    color: #fff; /* Adjust to fit your design */
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
 .carousel {
     position: relative;
     background: url('/images/animatedbackground.gif') center/cover no-repeat;
@@ -82,7 +95,7 @@ body {
 
 /* Card Styling */
 .card-wrapper {
-    max-width: 500px; /* Slightly larger cards for better readability */
+    max-width: 700px; /* Slightly larger cards for better readability */
     margin: 0 auto;
     border-radius: 10px;
     padding: 1.5em; /* Increase padding inside the cards */
@@ -168,33 +181,47 @@ body {
 
 /* Feature Grid */
 .feature-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1.5em;
-    margin-top: 2em;
+    display: flex; /* Arrange items in a row */
+    justify-content: space-around; /* Add spacing between items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Add consistent spacing between items */
+    padding: 20px;
 }
+
 .feature-item {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
-    padding: 1em;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 405px; /* Consistent width for all feature items */
+    text-align: center; /* Center-align the content */
+    padding: 15px; /* Add padding inside the box */
+    border-radius: 10px; /* Rounded corners for a polished look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    background: rgba(0, 0, 0, 0.6); /* Slightly transparent background */
 }
-.feature-item img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1em;
-    border-radius: 8px;
+
+.feature-item:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
 }
+
+.feature-link {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.feature-image {
+    width: 100%; /* Ensure the image fills the container width */
+    height: 300px; /* Consistent height for all images */
+    object-fit: cover; /* Maintain aspect ratio and cover the box */
+    border-radius: 10px; /* Match the border radius of the container */
+}
+
 .feature-item h3 {
-    font-size: 1.5rem;
-    color: #ffaa00;
-    margin-bottom: 0.5em;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #ffaa00; /* Highlighted color for headings */
 }
+
 .feature-item p {
-    color: #fff;
     font-size: 1rem;
+    color: #fff; /* White text for readability */
+    margin-top: 5px;
 }
 
 /* Footer */

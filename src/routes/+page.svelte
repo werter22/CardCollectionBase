@@ -24,10 +24,11 @@
 </section>
 
 <section class="features">
-    <h2>Explore Our Features</h2>
-
     <!-- Bootstrap Carousel -->
     <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-title">
+            <h2>Explore Our Features</h2>
+        </div>
         <div class="carousel-inner">
             {#each cardRows as row, rowIndex}
                 <div class="carousel-item {rowIndex === 0 ? 'active' : ''}">
@@ -64,22 +65,27 @@
     </div>
 </section>
 
-
 <!-- Static Feature Grid -->
 <div class="feature-grid">
     <div class="feature-item">
-        <img src="https://via.placeholder.com/300x200" alt="Card Management" />
-        <h3>Card Management</h3>
+        <img src="/images/card_archive.png" alt="Card Management" class="feature-image" />
+        <a href="/cards" class="feature-link">
+            <h3>Card Archive</h3>
+        </a>
         <p>Organize and showcase your cards with ease.</p>
     </div>
     <div class="feature-item">
-        <img src="https://via.placeholder.com/300x200" alt="Deck Builder" />
-        <h3>Deck Builder</h3>
+        <img src="/images/deck_builder.png" alt="Deck Builder" class="feature-image" />
+        <a href="/decks" class="feature-link">
+            <h3>Deck Builder</h3>
+        </a>
         <p>Create the ultimate deck to dominate the competition.</p>
     </div>
     <div class="feature-item">
-        <img src="https://via.placeholder.com/300x200" alt="Player Profiles" />
-        <h3>Player Profiles</h3>
+        <img src="/images/player_profiles.png" alt="Player Profiles" class="feature-image" />
+        <a href="/players" class="feature-link">
+            <h3>Player Profiles</h3>
+        </a>
         <p>Connect with other collectors and expand your network.</p>
     </div>
 </div>
