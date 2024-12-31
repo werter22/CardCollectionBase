@@ -1,5 +1,5 @@
- /* General Styles */
- body {
+/* General Styles */
+body {
     background: url('/images/website_background.png') no-repeat center center/cover;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,14 +8,13 @@
     color: #ffffff;
 }
 
-/*Nav bar*/
+/* Navbar */
 .nav-link:hover {
-    color: #ffaa00 !important;
-    /* Gold hover effect */
+    color: #ffaa00 !important; /* Gold hover effect */
 }
 
-  /* Hero Section */
-  .hero {
+/* Hero Section */
+.hero {
     background: url('/images/hero_background.png') no-repeat center center/cover;
     color: white;
     text-align: center;
@@ -46,40 +45,156 @@
     color: white;
 }
 
-/* Features Section */
-.features {
+/* Carousel Styling */
+.carousel {
+    position: relative;
+    background: url('/images/animatedbackground.gif') center/cover no-repeat;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures no overflow of content */
+}
+
+.carousel-inner {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carousel-item {
     text-align: center;
-    padding: 40px 20px;
-    background-color: rgba(30, 30, 46, 0.8);
+    padding: 25px 10px; /* Add more padding for better spacing */
+    background-color: rgba(0, 0, 0, 0.05); /* Slightly transparent background */
+    border-radius: 10px;
 }
 
-.features h2 {
-    margin-bottom: 30px;
+/* Row Styling */
+.row {
+    display: flex;
+    justify-content: space-between; /* Ensure proper spacing between cards */
+    gap: 10px; /* Increase spacing between cards */
 }
 
+.col-lg-4,
+.col-md-6,
+.col-sm-12 {
+    flex: 1 1 calc(33.333% - 30px); /* Adjust size to allow better spacing */
+    max-width: calc(33.333% - 30px); /* Account for the gap */
+    box-sizing: border-box;
+}
+
+/* Card Styling */
+.card-wrapper {
+    max-width: 500px; /* Slightly larger cards for better readability */
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1.5em; /* Increase padding inside the cards */
+    background: rgba(29, 28, 28, 0.15); /* More transparent background */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Slightly larger shadow for better depth */
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-wrapper:hover {
+    transform: scale(1.1); /* Make the hover effect more pronounced */
+}
+
+.card-wrapper img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px; /* Add more space below the image */
+}
+
+.card-wrapper h3 {
+    color: #ffaa00;
+    font-size: 1.3rem; /* Increase font size for better readability */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card-wrapper p {
+    color: #fff;
+    font-size: 1.1rem; /* Slightly larger text for better readability */
+    text-align: center;
+    line-height: 1.5; /* Increase line spacing for better text presentation */
+}
+
+/* Active and Non-active Cards */
+.carousel-item.active {
+    transform: scale(1); /* Full size for active cards */
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+    transform: scale(0.95); /* Slightly smaller for non-active slides */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Background for the Carousel */
+.carousel {
+    position: relative;
+    background: url('/images/animated_background.gif') center/cover no-repeat;
+    border-radius: 10px;
+    padding: 20px;
+    overflow: hidden; /* Ensures no overflow of content */
+    animation: moveBackgroundUp 30s linear infinite; /* Apply animation */
+}
+
+@keyframes moveBackgroundUp {
+    0% {
+        background-position: center 100%; /* Start from the bottom */
+    }
+    100% {
+        background-position: center 0%; /* End at the top */
+    }
+}
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .col-lg-4 {
+        max-width: 33.333%;
+    }
+}
+
+@media (max-width: 992px) {
+    .col-md-6 {
+        flex: 1 1 calc(50% - 30px); /* Two cards per row for medium screens */
+        max-width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .col-sm-12 {
+        flex: 1 1 calc(100% - 30px); /* One card per row for small screens */
+        max-width: calc(100% - 30px);
+    }
+}
+
+/* Feature Grid */
 .feature-grid {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
     flex-wrap: wrap;
+    gap: 1.5em;
+    margin-top: 2em;
 }
-
 .feature-item {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.feature-item img {
-    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+    padding: 1em;
     border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
-
+.feature-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
 .feature-item h3 {
-    margin-top: 15px;
+    font-size: 1.5rem;
+    color: #ffaa00;
+    margin-bottom: 0.5em;
+}
+.feature-item p {
+    color: #fff;
+    font-size: 1rem;
 }
 
 /* Footer */
@@ -88,25 +203,22 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    margin-top: 20px;
 }
-
 footer a {
     color: #ffaa00;
     text-decoration: none;
     margin: 0 10px;
 }
-
 footer a:hover {
     text-decoration: underline;
 }
-
 .newsletter input {
     padding: 10px;
     border-radius: 5px;
     border: none;
     margin-right: 10px;
 }
-
 .newsletter button {
     padding: 10px 15px;
     border: none;
