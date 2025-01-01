@@ -161,17 +161,17 @@
 
     /* Background styles for different card types */
     .card-container.creature {
-        border-color: #bd8132;
+        border-color: #a15e05;
         background: url('/images/vintage_texture.png'), #c9a76e;
     }
 
     .card-container.trap {
-        border-color: #d8bfd8;
+        border-color: #810781;
         background: url('/images/vintage_texture.png'), #c588d1;
     }
 
     .card-container.spell {
-        border-color: #2e8b57;
+        border-color: #023016;
         background: url('/images/vintage_texture.png'), #517e61;
     }
 

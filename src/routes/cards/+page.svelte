@@ -8,7 +8,7 @@
   
   <div class="row mt-3">
     {#each data.cards as card}
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-2 gx-3">
+      <div class="col-sm-3 col-md-4 col-lg-4 mb-2 gx-2">
         <CardCard {card}></CardCard>
       </div>
     {/each}

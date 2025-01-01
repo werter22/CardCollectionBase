@@ -36,7 +36,7 @@ async function getCard(id) {
   let card = null;
   try {
     const collection = db.collection("cards");
-    const query = { _id: new ObjectId(id) }; // Filter by ID
+    const query = { _id: id }; // Filter by ID
     card = await collection.findOne(query);
 
     if (!card) {
