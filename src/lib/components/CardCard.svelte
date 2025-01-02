@@ -32,7 +32,7 @@
         margin: 1em auto;
         padding: 1em;
         background-blend-mode: overlay;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
         font-family: Arial, sans-serif;
     }
 
@@ -122,7 +122,7 @@
         max-width: 100%;
         height: auto;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
     }
 
     .card-text-box {
