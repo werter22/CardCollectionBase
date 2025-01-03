@@ -546,3 +546,83 @@ footer a:hover {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     /* Normal glow */
 }
+
+/* Create Form Style*/
+ .form-title {
+        color: #ffcc33;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .card-form {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 2em;
+        border-radius: 12px;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .form-group {
+        margin-bottom: 1.5em;
+    }
+
+    .form-label {
+        font-size: 1.1em;
+        color: #ffcc33;
+        margin-bottom: 0.5em;
+        display: block;
+    }
+
+    .form-control {
+        background: #333;
+        color: #fff;
+        border: 1px solid #ffcc33;
+        padding: 0.8em;
+        width: 100%;
+        border-radius: 6px;
+    }
+
+    .form-control:focus {
+        border-color: #ffaa00;
+        outline: none;
+        background-color: #444;
+    }
+
+    .submit-button {
+        background: linear-gradient(45deg, #ffcc33, #ffaa00);
+        color: #fff;
+        border: none;
+        padding: 0.8em 2em;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.2em;
+        transition: background 0.3s;
+        display: block;
+        width: 100%;
+    }
+
+    .submit-button:hover {
+        background: linear-gradient(45deg, #ffaa00, #ffcc33);
+    }
+
+    .success-message {
+        color: #32cd32;
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .back-link {
+        color: #ffcc33;
+        text-decoration: none;
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .back-link:hover {
+        color: #ffaa00;
+    }

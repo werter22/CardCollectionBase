@@ -1,78 +1,36 @@
 <script>
-    export let deck; // Single deck object passed as a prop
+    export let deck; // Deck object passed as a prop
 </script>
 
-<div class="deck">
-    <!-- Deck Header -->
+<div class="deck-card">
     <div class="deck-header">
-        <div class="deck-name">
-            <strong>{deck.Name}</strong>
-        </div>
-        <div class="deck-theme">
-            <em>{deck.Theme}</em>
-        </div>
+        <h2>{deck.Name}</h2>
+        <p class="deck-theme">{deck.Theme}</p>
     </div>
 </div>
 
 <style>
-    .deck {
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 1em;
-        background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    .deck-card {
+        border-radius: 15px;
+        padding: 20px;
+        color: #fff;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    .deck-header {
-        margin-bottom: 1.5em;
-        font-size: 1.2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .deck-name {
+    .deck-header h2 {
+        font-size: 1.8rem;
         font-weight: bold;
-        color: #ffaa00; /* Gold color for deck name */
+        margin-bottom: 10px;
+        text-align: center;
+        color: #ffcc00;
     }
 
     .deck-theme {
+        font-size: 1.2rem;
         font-style: italic;
-        color: #ccc;
-    }
-
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px; /* Add spacing between cards */
-    }
-
-    .col-sm-6,
-    .col-md-4,
-    .col-lg-3 {
-        flex: 1 1 calc(25% - 15px); /* Responsive column layout */
-        max-width: calc(25% - 15px); /* Ensure 4 columns per row */
-        box-sizing: border-box;
-    }
-
-    @media (max-width: 992px) {
-        .col-md-4 {
-            flex: 1 1 calc(33.333% - 15px); /* Show 3 columns on medium screens */
-            max-width: calc(33.333% - 15px);
-        }
-    }
-
-    @media (max-width: 768px) {
-        .col-sm-6 {
-            flex: 1 1 calc(50% - 15px); /* Show 2 columns on small screens */
-            max-width: calc(50% - 15px);
-        }
-    }
-
-    @media (max-width: 576px) {
-        .col-sm-6 {
-            flex: 1 1 100%; /* Show 1 column on extra small screens */
-            max-width: 100%;
-        }
+        text-align: center;
+        color: #d1d1d1;
     }
 </style>

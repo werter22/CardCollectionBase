@@ -4,6 +4,12 @@
 </script>
 
 <div class="card-container">
+     <!-- Navigation Buttons -->
+     <div class="navigation-buttons">
+        <a href="/cards" class="btn-nav">Back to Cards</a>
+        <a href="/decks" class="btn-nav">Back to Decks</a>
+    </div>
+    
     <!-- Deck Header -->
     <div class="card-header">
         <h1>{card.Name}</h1>
