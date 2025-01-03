@@ -40,8 +40,8 @@
     </div>
   
     <div class="header">
-      <h1>Deck Builder: {deck.Name}</h1>
-      <p>{deck.Theme || "No theme provided"}</p>
+      <h1>{deck.Name}</h1>
+      <p class="deck-theme">{deck.Theme || "No theme provided"}</p>
       <button on:click={saveDeck} class="save-btn">Save Deck</button>
     </div>
   
@@ -49,7 +49,7 @@
       {#each allCards as card}
         <div class="card-wrapper">
           <CardCard {card} />
-          <label>
+          <label class="checkbox-label">
             <input
               type="checkbox"
               checked={selectedCards.has(card._id)}
@@ -65,54 +65,100 @@
   <style>
     .deck-builder {
       padding: 16px;
+      background: rgba(0, 0, 0, 0.7); /* Dark background */
+      color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
+  
     .back-button {
       margin-bottom: 16px;
     }
+  
     .btn-back {
       text-decoration: none;
       font-size: 1rem;
-      color: #007bff;
+      color: #ffcc00; /* Gold text */
       padding: 8px 12px;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
+      background: rgba(0, 0, 0, 0.5); /* Transparent background */
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
       display: inline-block;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
+  
     .btn-back:hover {
-      background-color: #e0e0e0;
+      background: rgba(255, 255, 255, 0.2); /* Slight highlight */
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
     }
+  
     .header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
       margin-bottom: 24px;
     }
+  
+    .header h1 {
+      font-size: 2rem;
+      color: #ffcc00; /* Gold */
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); /* Glow effect */
+    }
+  
+    .deck-theme {
+      font-size: 1rem;
+      color: #d1d1d1; /* Subtle grey text */
+      font-style: italic;
+    }
+  
     .save-btn {
       margin-top: 16px;
       padding: 8px 16px;
-      background-color: #007bff;
-      color: white;
+      background: rgba(255, 215, 0, 0.8); /* Gold button */
+      color: #000;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
+      box-shadow: 0 2px 4px rgba(255, 215, 0, 0.4);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
+  
     .save-btn:hover {
-      background-color: #0056b3;
+      background: rgba(255, 215, 0, 1); /* Brighter gold */
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.6);
     }
+  
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
       gap: 16px;
     }
+  
     .card-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    label {
+  
+    .card-wrapper:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+    }
+  
+    .checkbox-label {
       margin-top: 8px;
       font-size: 0.9rem;
+      color: #fff;
+    }
+  
+    .checkbox-label input {
+      margin-right: 8px;
     }
   </style>
   

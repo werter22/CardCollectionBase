@@ -3,31 +3,18 @@
     import PlayerCard from "$lib/components/PlayerCard.svelte";
   </script>
   
-  <div class="card-background">
-    <!-- Display Players in Two Columns -->
-    <div class="row mt-3">
-      {#each data.players as player}
-        <div class="col-md-6 mb-3">
-          <PlayerCard {player} />
-        </div>
-      {/each}
-    </div>
+  <div class="players-grid">
+    {#each data.players as player}
+      <PlayerCard {player} />
+    {/each}
   </div>
-
+  
   <style>
-    .card-background {
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Two or more columns */
+      gap: 16px;
       padding: 16px;
-      background-color: #f5f5f5;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .col-md-6 {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-    .mb-3 {
-      margin-bottom: 16px;
     }
   </style>
+  
