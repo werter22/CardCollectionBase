@@ -3,7 +3,6 @@
 </script>
 
 <div class="deck-card-list">
-    <h3>Cards</h3>
     <ul>
         {#each deck.CardDetails as card}
             <li class={`card-container ${card.Type}`}>

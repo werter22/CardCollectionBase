@@ -4,7 +4,10 @@
 
 <div class="deck-card">
     <div class="deck-header">
-        <h2>{deck.Name}</h2>
+        <!-- Link to the deck's detail page -->
+        <a href={`/decks/${deck._id}`} class="deck-name-link">
+            <h2>{deck.Name}</h2>
+        </a>
         <p class="deck-theme">{deck.Theme}</p>
     </div>
 </div>
@@ -25,6 +28,15 @@
         margin-bottom: 10px;
         text-align: center;
         color: #ffcc00;
+    }
+
+    .deck-name-link {
+        text-decoration: none;
+    }
+
+    .deck-name-link h2:hover {
+        color: #ff9900; /* Change color on hover */
+        cursor: pointer;
     }
 
     .deck-theme {

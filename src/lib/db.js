@@ -267,6 +267,136 @@ async function deleteDeck(id) {
   return null;
 }
 
+//////////////////////////////////////////
+// Players
+//////////////////////////////////////////
+
+// Get all players
+async function getPlayers() {
+  let players = [];
+  try {
+    const collection = db.collection("players");
+
+    // Query/filter (optional)
+    const query = {};
+
+    // Get all players that match the query
+    players = await collection.find(query).toArray();
+    players.forEach((player) => {
+      player._id = player._id.toString(); // Convert ObjectId to string
+    });
+  } catch (error) {
+    console.log(error);
+    // TODO: error handling
+  }
+  return players;
+}
+
+// Get player by ID
+async function getPlayer(id) {
+  let player = null;
+  try {
+    const collection = db.collection("players");
+    const query = { _id: new ObjectId(id) }; // Filter by ID
+    player = await collection.findOne(query);
+
+    if (!player) {
+      console.log("No player with ID " + id);
+      // TODO: error handling
+    } else {
+      player._id = player._id.toString(); // Convert ObjectId to string
+    }
+  } catch (error) {
+    console.log(error.message);
+    // TODO: error handling
+  }
+  return player;
+}
+
+// Create player
+// Example player object:
+/* 
+{
+  Name: "PhoenixFlame",
+  Rank: "Advanced",
+  OwnedDecks: [
+    "67768bc1b40ab1c49ca80976",
+    "67768bc1b40ab1c49ca80977"
+  ],
+  ProfilePic: "/images/playerProfile/PhoenixFlame.png"
+}
+*/
+async function createPlayer(player) {
+  try {
+    const collection = db.collection("players");
+    const result = await collection.insertOne(player);
+    return result.insertedId.toString(); // Convert ObjectId to string
+  } catch (error) {
+    console.log(error.message);
+    // TODO: error handling
+  }
+  return null;
+}
+
+// Update player
+// Example player object:
+/* 
+{
+  _id: "6777d75fef2f78ef00b20be4",
+  Name: "PhoenixFlame",
+  Rank: "Advanced",
+  OwnedDecks: [
+    "67768bc1b40ab1c49ca80976",
+    "67768bc1b40ab1c49ca80977"
+  ],
+  ProfilePic: "/images/playerProfile/PhoenixFlame.png"
+}
+*/
+// Returns: ID of the updated player or null if player could not be updated
+async function updatePlayer(player) {
+  try {
+    let id = player._id;
+    delete player._id; // Remove _id from the object, as it cannot be updated
+    const collection = db.collection("players");
+    const query = { _id: new ObjectId(id) }; // Filter by ID
+    const result = await collection.updateOne(query, { $set: player });
+
+    if (result.matchedCount === 0) {
+      console.log("No player with ID " + id);
+      // TODO: error handling
+    } else {
+      console.log("Player with ID " + id + " has been updated.");
+      return id;
+    }
+  } catch (error) {
+    console.log(error.message);
+    // TODO: error handling
+  }
+  return null;
+}
+
+// Delete player by ID
+// Returns: ID of the deleted player or null if player could not be deleted
+async function deletePlayer(id) {
+  try {
+    const collection = db.collection("players");
+    const query = { _id: new ObjectId(id) }; // Filter by ID
+    const result = await collection.deleteOne(query);
+
+    if (result.deletedCount === 0) {
+      console.log("No player with ID " + id);
+    } else {
+      console.log("Player with ID " + id + " has been successfully deleted.");
+      return id;
+    }
+  } catch (error) {
+    console.log(error.message);
+    // TODO: error handling
+  }
+  return null;
+}
+
+
 // Export all functions so that they can be used in other files
 export default {
   getCards,
@@ -279,4 +409,9 @@ export default {
   createDeck,
   updateDeck,
   deleteDeck,
+  getPlayers,
+  getPlayer,
+  createPlayer,
+  updatePlayer,
+  deletePlayer
 };

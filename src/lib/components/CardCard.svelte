@@ -3,6 +3,10 @@
 </script>
 
 <div class="card-container {card.Type.toLowerCase()}">
+        <!-- Hidden input to store the card ID -->
+        <input type="hidden" name="cardId" value={card._id} />
+
+
     <div class="header">
         <span class="rarity rarity-{card.Rarity.toLowerCase()}">{card.Rarity}</span>
         <span class="type type-{card.Type.toLowerCase()}">{card.Type}</span>
